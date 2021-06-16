@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}
+Unplanned Tasks
+{% endblock %}
+{% block content %}
+
+<div class='container-fluid'>
+    <br>
+    <div class="form-group row g-3">
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+
+            <div class="input-group">
+                <input class="form-control" type="date" value="2021-05-14" id="start-date" aria-label="Filter"
+                    aria-describedby="basic-addon2" />
+                <input class="form-control" type="date" value="2021-05-14" id="end-date" aria-label="Filter"
+                    aria-describedby="basic-addon2" />
+                <div class="input-group">
+                    <button class="btn btn-dark" type="button">Filter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            <strong>Unplanned Tasks</strong>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-dark table-hover" id="dataTable" width="100%" cellspacing="0">
+                    <thead class="align-items-center">
+                        <tr>
+                            <th>W/O Ref</th>
+                            <th>Date Assign</th>
+                            <th>Description</th>
+                            <th>Site Name</th>
+                            <th>Asset</th>
+                            <th>Skill Set</th>
+                            <th>Assigned</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            <td>{{ item.get('wo_number')}}</td>
+                            <td>{{ item.get('date_assigned')}}</td>
+                            <td>{{ item.get('description')}}</td>
+                            <td>{{ item.get('site')}}</td>
+                            <td>{{ item.get('asset_id')}}</td>
+                            <td>{{ item.get('skillset')}}</td>
+                            <td>{{ item.get('assigned_to')}}</td>
+                            <td><a class="btn btn-outline-primary btn-sm" href="/asset360" type="button">View</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="static/assets/demo/datatables-demo.js"></script>
+{% endblock %}

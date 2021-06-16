@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block additionalhead %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<style>
+    #map {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        /* /* width: 800px; */
+        height: 400px;
+        background-color: #181e24;
+    }
+</style>
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container-fluid">
+    <br>
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="border border-secondary rounded" id="map"></div>
+        </div>
+        <script>
+            var map = L.map('map', {
+                crs: L.CRS.Simple,
+                minZoom: -3
+            });
+            var bounds = [[0, 0], [1558, 1558]];
+            var image = L.imageOverlay('static/assets/img/basement-edited.png', bounds).addTo(map);
+            map.fitBounds(bounds);
+            var yx = L.latLng;
+
+            var xy = function (x, y) {
+                if (L.Util.isArray(x)) {    // When doing xy([x, y]);
+                    return yx(x[1], x[0]);
+                }
+                return yx(y, x);  // When doing xy(x, y);
+            };
+            var sol = xy(175.2, 145.0);
+            var mizar = xy(41.6, 130.1);
+            var kruegerZ = xy(13.4, 56.5);
+            var deneb = xy(218.7, 8.3);
+
+            L.marker(sol).addTo(map).bindPopup('Sol');
+            L.marker(mizar).addTo(map).bindPopup('Mizar');
+            L.marker(kruegerZ).addTo(map).bindPopup('Krueger-Z');
+            L.marker(deneb).addTo(map).bindPopup('Deneb');
+
+            var travel = L.polyline([sol, deneb]).addTo(map);
+                // L.tileLayer("./basement-edited.png").addTo(map);
+                // L.gridLayer("./basement-edited.png", noWrap = true).addTo(map);
+        </script>
+
+        <div class="col-xl-4">
+            <div class="row">
+                <div class="col-xl-6 col-md-2">
+                    <div class="card bg-primary text-white mb-4">
+                        <div class="card-body" href="/model3d" data-toggle="modal" data-target="#mymodal">Twin View
+                        </div>
+                    </div>
+
+
+                    <!-- MODAL POPUP -->
+                    <div class="modal" id="mymodal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title">Twin View</h2>
+                                    <button class="close" type="button" data-dismiss="modal">x</button>
+                                </div>
+                                <div class="modal-body">
+                                    <a href="/model3d">Click to view the assets twin view.</a>
+                                </div>
+                            </div><!-- end .modal-content-->
+                        </div><!-- end .modal-dialog-->
+                    </div><!-- end .modal-->
+                </div>
+
+                <div class="col-xl-6 col-md-2">
+                    <div class="card bg-primary text-white mb-4">
+                        <div class="card-body" href="/model3d" data-toggle="modal" data-target="#mymodal">Twin View
+                        </div>
+                    </div>
+
+
+                    <!-- MODAL POPUP -->
+                    <div class="modal" id="mymodal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 class="modal-title">Twin View</h2>
+                                    <button class="close" type="button" data-dismiss="modal">x</button>
+                                </div>
+                                <div class="modal-body">
+                                    <a href="/model3d">Click to view the assets twin view.</a>
+                                </div>
+                            </div><!-- end .modal-content-->
+                        </div><!-- end .modal-dialog-->
+                    </div><!-- end .modal-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <form action="/asset360">
+                        <div class="form-group">
+                            <label for="comment"><strong>Notes :</strong></label>
+                            <textarea class="form-control" rows="5" id="comment"
+                                name="text">Calibrate readings at sensor S01.</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="float: right;">Add Note</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-8">
+            <strong>AHU 01</strong>
+            <div class="card bg-dark text-white">
+                <div class="card-body">Related W/O Ref : 99436
+                    <br>Parts Ordered : None<br>
+                    Assigned to : John
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <strong>NBA Recommendation</strong>
+            <ol class="list-group list-group-numbered" style="color:white">
+                <li class="list-group-item d-flex justify-content-between align-items-start bg-dark">
+                    <div class="ms-2 me-auto">
+                        Replace/Calibrate sensor S01
+                    </div>
+                    <span class="badge bg-secondary rounded-pill " style="color:white">86%</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start bg-dark">
+                    <div class="ms-2 me-auto">
+                        Humidifier Demand Control
+                    </div>
+                    <span class="badge bg-secondary rounded-pill" style="color:white">56%</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start bg-dark">
+                    <div class="ms-2 me-auto">
+                        Adjust Fan Speed
+                    </div>
+                    <span class="badge bg-secondary rounded-pill" style="color:white">30%</span>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+{% endblock %}
