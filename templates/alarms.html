@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% block title %}
+Alarms
+{% endblock %}
+
+{% block content %}
+<div class='container-fluid'>
+    <br>
+    <div class="form-group row g-3">
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+
+            <div class="input-group">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary">B<span
+                            class="badge badge-pill badge-danger">4</span></button>
+                    <button type="button" class="btn btn-dark">G</button>
+                    <button type="button" class="btn btn-dark">1</button>
+                    <button type="button" class="btn btn-dark">2</button>
+                    <button type="button" class="btn btn-dark">3</button>
+                </div>
+                <input class="form-control" type="date" value="2021-05-14" id="start-date" aria-label="Filter"
+                    aria-describedby="basic-addon2" />
+                <input class="form-control" type="date" value="2021-05-14" id="end-date" aria-label="Filter"
+                    aria-describedby="basic-addon2" />
+                <div class="input-group">
+                    <button class="btn btn-dark" type="button">Filter</button>
+                </div>
+            </div>
+        </form>
+        <!-- <label for="example-date-input" class="col-2 col-form-label">Date</label> -->
+        <!-- <div class="col-10"> -->
+        <!-- <input class="form-control" type="date" value="2021-05-14" id="example-date-input"> -->
+        <!-- </div> -->
+    </div>
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                    <strong>Wet Plant Alarms</strong>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive ">
+                        <table class="table table-bordered table-dark table-hover" id="dataTable" width="100%"
+                            cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Asset ID</th>
+                                    <th>Alarm</th>
+                                    <th>Reading</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AHU01</td>
+                                    <td>CHW Flow Temp below 40C</td>
+                                    <td>12.1</td>
+                                    <td><a class="btn btn-outline-primary btn-sm" href="/asset360" type="button">View</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>AHU01</td>
+                                    <td>CHW Flow Temp below 40C</td>
+                                    <td>12.4</td>
+                                    <td><a class="btn btn-outline-primary btn-sm" href="/asset360" type="button">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>AHU01</td>
+                                    <td>CHW Flow Temp below 40C</td>
+                                    <td>12.1</td>
+                                    <td><a class="btn btn-outline-primary btn-sm" href="/asset360" type="button">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>AHU01</td>
+                                    <td>CHW Flow Temp below 40C</td>
+                                    <td>12.4</td>
+                                    <td><a class="btn btn-outline-primary btn-sm" href="/asset360" type="button">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>AHU01</td>
+                                    <td>CHW Flow Temp below 40C</td>
+                                    <td>12.1</td>
+                                    <td><a class="btn btn-outline-primary btn-sm" href="/asset360" type="button">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>AHU01</td>
+                                    <td>CHW Flow Temp below 40C</td>
+                                    <td>12.4</td>
+                                    <td><a class="btn btn-outline-primary btn-sm" href="/asset360" type="button">View</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                    <strong>Air Plant Alarms</strong>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark table-hover" id="dataTable2" width="100%"
+                            cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Asset ID</th>
+                                    <th>Alarm</th>
+                                    <th>Reading</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AHU03</td>
+                                    <td>CHW Flow Temp below 40C</td>
+                                    <td>12.1</td>
+                                    <td><a class="btn btn-outline-primary btn-sm" href="/asset360" type="button">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>AHU04</td>
+                                    <td>HWS Flow Temp below 40C</td>
+                                    <td>58.5</td>
+                                    <td><a class="btn btn-outline-primary btn-sm" href="/asset360" type="button">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>AHU03</td>
+                                    <td>CHW Flow Temp below 40C</td>
+                                    <td>12.1</td>
+                                    <td><a class="btn btn-outline-primary btn-sm" href="/asset360" type="button">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>AHU04</td>
+                                    <td>HWS Flow Temp below 40C</td>
+                                    <td>58.5</td>
+                                    <td><a class="btn btn-outline-primary btn-sm" href="/asset360" type="button">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>AHU03</td>
+                                    <td>CHW Flow Temp below 40C</td>
+                                    <td>12.1</td>
+                                    <td><a class="btn btn-outline-primary btn-sm" href="/asset360" type="button">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>AHU04</td>
+                                    <td>HWS Flow Temp below 40C</td>
+                                    <td>58.5</td>
+                                    <td><a class="btn btn-outline-primary btn-sm" href="/asset360" type="button">View</a></td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="static/assets/demo/datatables-demo.js"></script>
+{% endblock %}
