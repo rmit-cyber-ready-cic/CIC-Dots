@@ -1,5 +1,5 @@
 # CIC-Dots
-Cloud Innovation Center at RMIT.
+Cloud Innovation Center at RMIT University.
 Team CIC Dots
 
 
